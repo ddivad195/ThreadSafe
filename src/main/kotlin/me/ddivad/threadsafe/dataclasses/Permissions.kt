@@ -1,9 +1,9 @@
-package me.ddivad.starter.dataclasses
+package me.ddivad.threadsafe.dataclasses
 
 import dev.kord.common.entity.Permission
 import dev.kord.core.any
-import me.jakejmattson.discordkt.api.dsl.PermissionContext
-import me.jakejmattson.discordkt.api.dsl.PermissionSet
+import me.jakejmattson.discordkt.dsl.PermissionContext
+import me.jakejmattson.discordkt.dsl.PermissionSet
 
 enum class Permissions : PermissionSet {
     BOT_OWNER {

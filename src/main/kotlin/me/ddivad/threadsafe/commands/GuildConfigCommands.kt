@@ -1,11 +1,11 @@
-package me.ddivad.starter.commands
+package me.ddivad.threadsafe.commands
 
-import me.ddivad.starter.conversations.ConfigurationConversation
-import me.ddivad.starter.dataclasses.Configuration
-import me.ddivad.starter.dataclasses.Permissions
-import me.jakejmattson.discordkt.api.arguments.EveryArg
-import me.jakejmattson.discordkt.api.arguments.RoleArg
-import me.jakejmattson.discordkt.api.commands.commands
+import me.ddivad.threadsafe.conversations.ConfigurationConversation
+import me.ddivad.threadsafe.dataclasses.Configuration
+import me.ddivad.threadsafe.dataclasses.Permissions
+import me.jakejmattson.discordkt.arguments.EveryArg
+import me.jakejmattson.discordkt.arguments.RoleArg
+import me.jakejmattson.discordkt.commands.commands
 
 @Suppress("unused")
 fun guildConfigCommands(configuration: Configuration) = commands("Configuration") {

@@ -23,10 +23,10 @@ tasks {
     }
 
     shadowJar {
-        archiveFileName.set("Starter.jar")
+        archiveFileName.set("Threadsafe.jar")
         manifest {
             attributes(
-                "Main-Class" to "me.ddivad.starter.MainKt"
+                "Main-Class" to "me.ddivad.threadsafe.MainKt"
             )
         }
     }

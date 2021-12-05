@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   starter:
-    container_name: starter
+    container_name: threadsafe
     build:
       dockerfile: Dockerfile
       context: .

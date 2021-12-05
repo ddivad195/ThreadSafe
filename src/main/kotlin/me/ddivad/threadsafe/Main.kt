@@ -1,14 +1,13 @@
-package me.ddivad.starter
+package me.ddivad.threadsafe
 
 import dev.kord.common.annotation.KordPreview
-import dev.kord.common.kColor
-import dev.kord.core.supplier.EntitySupplyStrategy
 import dev.kord.gateway.PrivilegedIntent
-import me.ddivad.starter.dataclasses.Configuration
-import me.ddivad.starter.dataclasses.Permissions
-import me.ddivad.starter.services.BotStatsService
-import me.jakejmattson.discordkt.api.dsl.bot
-import me.jakejmattson.discordkt.api.extensions.addInlineField
+import me.ddivad.threadsafe.dataclasses.Configuration
+import me.ddivad.threadsafe.dataclasses.Permissions
+import me.ddivad.threadsafe.services.BotStatsService
+import me.jakejmattson.discordkt.dsl.bot
+import me.jakejmattson.discordkt.extensions.addInlineField
+import me.jakejmattson.discordkt.extensions.pfpUrl
 import java.awt.Color
 
 @KordPreview
@@ -41,12 +40,12 @@ suspend fun main() {
             color = it.discord.configuration.theme
 
             thumbnail {
-                url = self.avatar.url
+                url = self.pfpUrl
             }
 
             field {
                 name = self.tag
-                value = "A template for a DiscordKt bot. Change this for your bot's description."
+                value = "A Discord bot to keep track of thread creation and usage."
             }
 
             addInlineField("Prefix", it.prefix())
