@@ -37,5 +37,9 @@ data class GuildConfiguration(
     var prefix: String = "++",
     var staffRoleId: Snowflake,
     var adminRoleId: Snowflake,
-    var notificationChannel: Snowflake
+    var notificationChannel: Snowflake,
+    val stats: MutableList<ThreadStats> = mutableListOf()
 )
+
+@Serializable
+data class ThreadStats(val channelId: Snowflake, val parentChannelId: Snowflake, val dateTime: Long)
