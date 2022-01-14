@@ -1,6 +1,8 @@
 package me.ddivad.threadsafe
 
 import dev.kord.common.annotation.KordPreview
+import dev.kord.gateway.Intent
+import dev.kord.gateway.Intents
 import dev.kord.gateway.PrivilegedIntent
 import me.ddivad.threadsafe.dataclasses.Configuration
 import me.ddivad.threadsafe.dataclasses.Permissions
@@ -29,7 +31,10 @@ suspend fun main() {
             allowMentionPrefix = true
             commandReaction = null
             theme = Color.MAGENTA
-            permissions(Permissions.NONE)
+            permissions(Permissions.STAFF)
+            intents = Intents(
+                Intent.Guilds
+            )
         }
 
         mentionEmbed {
@@ -56,9 +61,9 @@ suspend fun main() {
             field {
                 name = "Build Info"
                 value = "```" +
-                        "Version:   1.0.0\n" +
+                        "Version: 1.0.0\n" +
                         "DiscordKt: ${versions.library}\n" +
-                        "Kotlin:    $kotlinVersion" +
+                        "Kotlin: $kotlinVersion" +
                         "```"
             }
 

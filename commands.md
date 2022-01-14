@@ -13,6 +13,12 @@
 | setstaffrole | Role      | Set the bot staff role.            |
 | setup        |           | Configure a guild to use this bot. |
 
+## Thread
+| Commands | Arguments | Description                     |
+| -------- | --------- | ------------------------------- |
+| stats    |           | View thread stats for a channel |
+|          | Channel   |                                 |
+
 ## Utility
 | Commands | Arguments | Description               |
 | -------- | --------- | ------------------------- |
