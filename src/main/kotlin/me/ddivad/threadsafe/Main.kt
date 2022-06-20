@@ -28,10 +28,10 @@ suspend fun main() {
         }
 
         configure {
-            allowMentionPrefix = true
+            mentionAsPrefix = true
             commandReaction = null
             theme = Color.MAGENTA
-            permissions(Permissions.STAFF)
+            permissions = Permissions
             intents = Intents(
                 Intent.Guilds
             )

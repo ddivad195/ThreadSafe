@@ -6,8 +6,10 @@ import dev.kord.core.event.channel.thread.ThreadChannelCreateEvent
 import me.ddivad.threadsafe.dataclasses.Configuration
 import me.ddivad.threadsafe.dataclasses.ThreadStats
 import me.jakejmattson.discordkt.dsl.listeners
+import me.jakejmattson.discordkt.extensions.idDescriptor
 import java.util.*
 
+@Suppress("unused")
 fun onThreadCreate(configuration: Configuration) = listeners {
     on<ThreadChannelCreateEvent> {
         val guild = channel.getGuildOrNull() ?: return@on
@@ -20,7 +22,7 @@ fun onThreadCreate(configuration: Configuration) = listeners {
             .getChannelOf<TextChannel>(guildConfiguration.notificationChannel)
             .createMessage("""
                 **Thread Created: ${channel.mention} (${channel.parent.mention})**
-                **Created By:** ${channel.owner.mention} 
+                **Created By:** ${channel.owner.asUser().idDescriptor()} 
             """.trimIndent())
     }
 }

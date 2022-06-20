@@ -24,7 +24,7 @@ fun guildConfigCommands(configuration: Configuration) = commands("Configuration"
         }
     }
 
-    command("setprefix") {
+    slash("setprefix") {
         description = "Set the bot prefix."
         requiredPermission = Permissions.ADMINISTRATOR
         execute(EveryArg) {
@@ -35,11 +35,11 @@ fun guildConfigCommands(configuration: Configuration) = commands("Configuration"
             val prefix = args.first
             configuration[guild.id]?.prefix = prefix
             configuration.save()
-            respond("Prefix set to: **$prefix**")
+            respondPublic("Prefix set to: **$prefix**", null)
         }
     }
 
-    command("setstaffrole") {
+    slash("setstaffrole") {
         description = "Set the bot staff role."
         requiredPermission = Permissions.ADMINISTRATOR
         execute(RoleArg) {
@@ -50,11 +50,11 @@ fun guildConfigCommands(configuration: Configuration) = commands("Configuration"
             val role = args.first
             configuration[guild.id]?.staffRoleId = role.id
             configuration.save()
-            respond("Role set to: **${role.name}**")
+            respondPublic("Role set to: **${role.name}**", null)
         }
     }
 
-    command("setadminrole") {
+    slash("setadminrole") {
         description = "Set the bot admin role."
         requiredPermission = Permissions.ADMINISTRATOR
         execute(RoleArg) {
@@ -65,7 +65,7 @@ fun guildConfigCommands(configuration: Configuration) = commands("Configuration"
             val role = args.first
             configuration[guild.id]?.adminRoleId = role.id
             configuration.save()
-            respond("Role set to: **${role.name}**")
+            respondPublic("Role set to: **${role.name}**", null)
         }
     }
 }
