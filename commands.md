@@ -2,12 +2,12 @@
 
 ## Key 
 | Symbol      | Meaning                        |
-| ----------- | ------------------------------ |
+|-------------|--------------------------------|
 | [Argument]  | Argument is not required.      |
 
 ## Configuration
 | Commands     | Arguments | Description                        |
-| ------------ | --------- | ---------------------------------- |
+|--------------|-----------|------------------------------------|
 | setadminrole | Role      | Set the bot admin role.            |
 | setprefix    | Text      | Set the bot prefix.                |
 | setstaffrole | Role      | Set the bot staff role.            |
@@ -15,12 +15,11 @@
 
 ## Thread
 | Commands | Arguments | Description                     |
-| -------- | --------- | ------------------------------- |
-| stats    |           | View thread stats for a channel |
-|          | Channel   |                                 |
+|----------|-----------|---------------------------------|
+| stats    | [Channel] | View thread stats for a channel |
 
 ## Utility
-| Commands | Arguments | Description               |
-| -------- | --------- | ------------------------- |
-| help     | [Command] | Display help information. |
+| Commands | Arguments     | Description               |
+|----------|---------------|---------------------------|
+| help     | [CommandName] | Display help information. |
 
