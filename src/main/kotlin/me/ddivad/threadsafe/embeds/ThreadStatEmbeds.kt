@@ -4,7 +4,6 @@ import dev.kord.common.entity.Snowflake
 import dev.kord.common.kColor
 import dev.kord.core.entity.Guild
 import dev.kord.core.entity.channel.TextChannel
-import dev.kord.core.entity.channel.thread.ThreadChannel
 import dev.kord.rest.Image
 import dev.kord.rest.builder.message.EmbedBuilder
 import kotlinx.coroutines.flow.count
@@ -16,9 +15,9 @@ suspend fun EmbedBuilder.createThreadStatsEmbed(guild: Guild, threadStats: Mutab
     color = Color.MAGENTA.kColor
 
     val filtered = threadStats.fold(HashMap<Snowflake, Int>()) { acc, next ->
-        acc[next.channelId] = acc.getOrDefault(next.channelId, 0) + 1
+        acc[next.parentChannelId] = acc.getOrDefault(next.parentChannelId, 0) + 1
         return@fold acc
-    }.entries.map { "${(guild.getChannel(it.key) as ThreadChannel).parent.mention}: ${it.value}" }
+    }.entries.map { "${guild.getChannel(it.key).mention}: ${it.value}" }
 
     description = """
         Showing total threads created:
@@ -27,7 +26,7 @@ suspend fun EmbedBuilder.createThreadStatsEmbed(guild: Guild, threadStats: Mutab
     """.trimIndent()
 
     footer {
-        icon = guild.getIconUrl(Image.Format.PNG) ?: ""
+        icon = guild.getIconUrl(Image.Format.PNG)
         text = guild.name
     }
 }
@@ -49,7 +48,7 @@ suspend fun EmbedBuilder.createThreadStatsEmbedForChannel(
     """.trimIndent()
 
     footer {
-        icon = guild.getIconUrl(Image.Format.PNG) ?: ""
+        icon = guild.getIconUrl(Image.Format.PNG)
         text = guild.name
     }
 }

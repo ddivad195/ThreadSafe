@@ -1,10 +1,12 @@
+import java.util.*
+
 group = "me.ddivad"
-version = Versions.BOT
-description = "discordKt starter template"
+version = "1.0.0"
+description = "A bot to manage threads in a guild.\n"
 
 plugins {
-    kotlin("jvm") version "1.5.31"
-    kotlin("plugin.serialization") version "1.5.31"
+    kotlin("jvm") version "1.7.10"
+    kotlin("plugin.serialization") version "1.7.10"
     id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
@@ -14,25 +16,32 @@ repositories {
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:${Versions.DISCORDKT}")
+    implementation("me.jakejmattson:DiscordKt:0.23.4")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
+    implementation("ch.qos.logback:logback-classic:1.4.0")
+    implementation("ch.qos.logback:logback-core:1.4.0")
 }
 
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "1.8"
+
+        Properties().apply {
+            setProperty("name", "Threadsafe")
+            setProperty("description", project.description)
+            setProperty("version", version.toString())
+            setProperty("url", "https://github.com/ddivad195/threadsafe")
+
+            store(file("src/main/resources/bot.properties").outputStream(), null)
+        }
     }
 
     shadowJar {
-        archiveFileName.set("Threadsafe.jar")
+        archiveFileName.set("ThreadSafe.jar")
         manifest {
             attributes(
                 "Main-Class" to "me.ddivad.threadsafe.MainKt"
             )
         }
     }
-}
-
-object Versions {
-    const val BOT = "1.0.0"
-    const val DISCORDKT = "0.23.0-SNAPSHOT"
 }
