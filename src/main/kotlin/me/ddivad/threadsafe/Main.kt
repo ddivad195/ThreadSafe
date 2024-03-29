@@ -18,7 +18,9 @@ fun main() {
 
     bot(token) {
         val configuration = data("config/config.json") { Configuration() }
-
+        prefix {
+            "/"
+        }
         configure {
             deleteInvocation = false
             mentionAsPrefix = true
